@@ -115,8 +115,6 @@ public:
 				// Inform the player they have joined the guild	
 				std::ostringstream ss;
 				ss << "Welcome to the " << player->GetGuildName() << " guild " << player->GetName() << "!";
-				ss << "Feel free to stay or leave " << player->GetGuildName() <<  " is primarily to help you"
-				       " meet people on the server.";
 				ChatHandler(player->GetSession()).SendSysMessage(ss.str().c_str());
 			}
 		}
