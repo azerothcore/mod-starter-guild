@@ -1,17 +1,45 @@
-    #############################################################################################################
-    
-     ____    __                                         ______  __              ____                    __      
-    /\  _`\ /\ \__                  __                 /\__  _\/\ \            /\  _`\                 /\ \__   
-    \ \,\L\_\ \ ,_\  __  __     __ /\_\     __      ___\/_/\ \/\ \ \___      __\ \ \L\ \     __    ____\ \ ,_\  
-     \/_\__ \\ \ \/ /\ \/\ \  /'_ `\/\ \  /'__`\  /' _ `\ \ \ \ \ \  _ `\  /'__`\ \  _ <'  /'__`\ /',__\\ \ \/  
-       /\ \L\ \ \ \_\ \ \_\ \/\ \L\ \ \ \/\ \L\.\_/\ \/\ \ \ \ \ \ \ \ \ \/\  __/\ \ \L\ \/\  __//\__, `\\ \ \_ 
-       \ `\____\ \__\\/`____ \ \____ \ \_\ \__/.\_\ \_\ \_\ \ \_\ \ \_\ \_\ \____\\ \____/\ \____\/\____/ \ \__\
-        \/_____/\/__/ `/___/> \/___L\ \/_/\/__/\/_/\/_/\/_/  \/_/  \/_/\/_/\/____/ \/___/  \/____/\/___/   \/__/
-                        /\___/ /\____/                                                                         
-                        \/__/  \_/__/               http://stygianthebest.github.io                              
-    
-    #############################################################################################################
-    
-     Modules, Scripts, and other resources for use with AzerothCore and the World of Warcraft v3.3.5a game client
-    
-    #############################################################################################################
+# ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
+- Latest build status with azerothcore: [![Build Status](https://travis-ci.org/azerothcore/mod-starter-guild.svg?branch=master)](https://travis-ci.org/azerothcore/mod-starter-guild)
+
+# Starting Guild #
+
+### Description ###
+------------------------------------------------------------------------------------------------------------------
+This module auto-assigns new players to specific guilds.
+
+- New characters are auto-joined to a specified guild on first login only.
+- Config: Set ID for Horde and Alliance guilds to use.
+	
+### Data ###
+------------------------------------------------------------------------------------------------------------------
+- Type: Player/Server
+- Script: StartGuild
+- Config: Yes
+
+### Version ###
+------------------------------------------------------------------------------------------------------------------
+- v2018.08.01 - Release
+
+
+### Credits ###
+------------------------------------------------------------------------------------------------------------------
+#### An original module for AzerothCore by StygianTheBest ([stygianthebest.github.io](http://stygianthebest.github.io)) ####
+
+###### Additional Credits include:
+- [Blizzard Entertainment](http://blizzard.com)
+- [TrinityCore](https://github.com/TrinityCore/TrinityCore/blob/3.3.5/THANKS)
+- [SunwellCore](http://www.azerothcore.org/pages/sunwell.pl/)
+- [AzerothCore](https://github.com/AzerothCore/azerothcore-wotlk/graphs/contributors)
+- [AzerothCore Discord](https://discord.gg/gkt4y2x)
+- [EMUDevs](https://youtube.com/user/EmuDevs)
+- [AC-Web](http://ac-web.org/)
+- [ModCraft.io](http://modcraft.io/)
+- [OwnedCore](http://ownedcore.com/)
+- [OregonCore](https://wiki.oregon-core.net/)
+- [Wowhead.com](http://wowhead.com)
+- [AoWoW](https://wotlk.evowow.com/)
+
+
+### License ###
+------------------------------------------------------------------------------------------------------------------
+- This code and content is released under the [GNU AGPL v3](https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3).
