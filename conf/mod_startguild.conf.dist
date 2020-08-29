@@ -14,3 +14,14 @@ StartGuild.Announce = 0
 # Note: if AllowTwoSide.Interaction.Guild = 1, you can set the same number for both factions
 StartGuild.Horde = 1
 StartGuild.Alliance = 2
+
+#
+# StartGuild.Level
+#
+# Level when the player will be invited to a guild
+#
+# Disable = 0 (Default)
+# Enable = level (ex. 10)
+#
+
+StartGuild.Level = 0
