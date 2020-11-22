@@ -1,6 +1,6 @@
-![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) Latest build status with azerothcore: [![Build Status](https://travis-ci.org/azerothcore/mod-starter-guild.svg?branch=master)](https://travis-ci.org/azerothcore/mod-starter-guild)
-
-# Starting Guild
+# ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
+## Starting Guild
+- Latest build status with azerothcore: [![Build Status](https://github.com/azerothcore/mod-starter-guild/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/azerothcore/mod-starter-guild)
 
 ## Description
 
