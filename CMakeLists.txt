@@ -5,5 +5,3 @@ AC_ADD_SCRIPT("${CMAKE_CURRENT_LIST_DIR}/src/mod_startguild.cpp")
 AC_ADD_CONFIG_FILE("${CMAKE_CURRENT_LIST_DIR}/conf/mod_startguild.conf.dist")
 
 AC_ADD_SCRIPT_LOADER("StartGuild" "${CMAKE_CURRENT_LIST_DIR}/src/loader_startguild.h")
-
-CU_ADD_HOOK(AFTER_WORLDSERVER_CMAKE "${CMAKE_CURRENT_LIST_DIR}/src/cmake/after_ws_install.cmake")
