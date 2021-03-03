@@ -59,25 +59,6 @@ This module automatically joins new players to a guild of your choice on first l
 
 #define Welcome_Name "Notice"
 
-
-class StartGuild_Config : public WorldScript
-{
-public:
-    StartGuild_Config() : WorldScript("StartGuild_Config") { };
-
-    void OnBeforeConfigLoad(bool reload) override
-    {
-            if (!reload)
-	    {
-			std::string conf_path = _CONF_DIR;
-	                std::string cfg_file = conf_path + "/mod_startguild.conf";
-	                std::string dist_file = cfg_file + ".dist";
-	    	    	sConfigMgr->LoadMore(dist_file.c_str());
-	    		sConfigMgr->LoadMore(cfg_file.c_str());
-	    }
-    }
-};
-
 class StartGuild : public PlayerScript
 {
 
@@ -133,6 +114,5 @@ public:
 void AddStartGuildScripts()
 {
 	new StartGuild();
-	new StartGuild_Config();
 }
 
