@@ -1,8 +1,9 @@
 /*
 
-# Starting Guild #
+# Starter Guild #
 
-#### A module for AzerothCore by [StygianTheBest](https://github.com/StygianTheBest/AzerothCore-Content/tree/master/Modules)
+#### A module for AzerothCore (https://github.com/azerothcore/mod-starter-guild)
+### Originally by [StygianTheBest](https://github.com/StygianTheBest/AzerothCore-Content/tree/master/Modules)
 ------------------------------------------------------------------------------------------------------------------
 
 
@@ -14,7 +15,7 @@ This module automatically joins new players to a guild of your choice on first l
 ### Data ###
 ------------------------------------------------------------------------------------------------------------------
 - Type: Player/Server
-- Script: StartGuild
+- Script: StarterGuild
 - Config: Yes
     - Enable Module
     - Enable Module Announce
@@ -24,6 +25,7 @@ This module automatically joins new players to a guild of your choice on first l
 
 ### Version ###
 ------------------------------------------------------------------------------------------------------------------
+- v2022.04.09 - Fixed deprecation warnings and renamed files/updated comments
 - v2017.08.01
 - v2017.08.02 - Fix crash prevention when no guilds exist
 
@@ -42,6 +44,7 @@ This module automatically joins new players to a guild of your choice on first l
 - [OregonCore](https://wiki.oregon-core.net/)
 - [Wowhead.com](http://wowhead.com)
 - [AoWoW](https://wotlk.evowow.com/)
+- [SoulSeekkor](https://github.com/SoulSeekkor)
 
 
 ### License ###
@@ -59,42 +62,42 @@ This module automatically joins new players to a guild of your choice on first l
 
 #define Welcome_Name "Notice"
 
-class StartGuild : public PlayerScript
+class StarterGuild : public PlayerScript
 {
 
 public:
-	StartGuild() : PlayerScript("StartGuild") { }
+	StarterGuild() : PlayerScript("StarterGuild") { }
 
 	// Announce Module
 	void OnLogin(Player *player)
 	{
-		if (sConfigMgr->GetOption<bool>("StartGuild.Enable", true))
+		if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true))
 		{
-			if (sConfigMgr->GetOption<bool>("StartGuild.Announce", true))
+			if (sConfigMgr->GetOption<bool>("StarterGuild.Announce", true))
 			{
-				ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00StartGuild |rmodule.");
+				ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00StarterGuild |rmodule.");
 			}
 
-            		uint8 level = sConfigMgr->GetOption<uint8>("StartGuild.Level", 0);
+            		uint8 level = sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0);
             		if (level > 0 && player->getLevel() == level && !player->GetGuild()) {
                 		addPlayerToGuild(player);
             		}
 		}
 	}
 
-	// Start Guild
+	// Starter Guild
 	void OnFirstLogin(Player* player)
 	{
 		// If enabled...
-		if (sConfigMgr->GetOption<bool>("StartGuild.Enable", true) && sConfigMgr->GetOption<uint8>("StartGuild.Level", 0) == 0)
+		if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true) && sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0) == 0)
 		{
         	        addPlayerToGuild(player);
 		}
 	}
 
 	void addPlayerToGuild(Player* player) {
-		const uint32 GUILD_ID_ALLIANCE = sConfigMgr->GetOption<uint32>("StartGuild.Alliance", 0);
-		const uint32 GUILD_ID_HORDE = sConfigMgr->GetOption<uint32>("StartGuild.Horde", 0);
+		const uint32 GUILD_ID_ALLIANCE = sConfigMgr->GetOption<uint32>("StarterGuild.Alliance", 0);
+		const uint32 GUILD_ID_HORDE = sConfigMgr->GetOption<uint32>("StarterGuild.Horde", 0);
 
 		Guild* guild = sGuildMgr->GetGuildById(player->GetTeamId() == TEAM_ALLIANCE ? GUILD_ID_ALLIANCE : GUILD_ID_HORDE);
 
@@ -111,7 +114,7 @@ public:
     }
 };
 
-void AddStartGuildScripts()
+void AddStarterGuildScripts()
 {
-	new StartGuild();
+	new StarterGuild();
 }
