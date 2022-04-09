@@ -68,14 +68,14 @@ public:
 	// Announce Module
 	void OnLogin(Player *player)
 	{
-		if (sConfigMgr->GetBoolDefault("StartGuild.Enable", true))
+		if (sConfigMgr->GetOption<bool>("StartGuild.Enable", true))
 		{
-			if (sConfigMgr->GetBoolDefault("StartGuild.Announce", true))
+			if (sConfigMgr->GetOption<bool>("StartGuild.Announce", true))
 			{
 				ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00StartGuild |rmodule.");
 			}
 
-            		uint8 level = sConfigMgr->GetIntDefault("StartGuild.Level", 0);
+            		uint8 level = sConfigMgr->GetOption<uint8>("StartGuild.Level", 0);
             		if (level > 0 && player->getLevel() == level && !player->GetGuild()) {
                 		addPlayerToGuild(player);
             		}
@@ -86,15 +86,15 @@ public:
 	void OnFirstLogin(Player* player)
 	{
 		// If enabled...
-		if (sConfigMgr->GetBoolDefault("StartGuild.Enable", true) && sConfigMgr->GetIntDefault("StartGuild.Level", 0) == 0)
+		if (sConfigMgr->GetOption<bool>("StartGuild.Enable", true) && sConfigMgr->GetOption<uint8>("StartGuild.Level", 0) == 0)
 		{
         	        addPlayerToGuild(player);
 		}
 	}
 
 	void addPlayerToGuild(Player* player) {
-		const uint32 GUILD_ID_ALLIANCE = sConfigMgr->GetIntDefault("StartGuild.Alliance", 0);
-		const uint32 GUILD_ID_HORDE = sConfigMgr->GetIntDefault("StartGuild.Horde", 0);
+		const uint32 GUILD_ID_ALLIANCE = sConfigMgr->GetOption<uint32>("StartGuild.Alliance", 0);
+		const uint32 GUILD_ID_HORDE = sConfigMgr->GetOption<uint32>("StartGuild.Horde", 0);
 
 		Guild* guild = sGuildMgr->GetGuildById(player->GetTeamId() == TEAM_ALLIANCE ? GUILD_ID_ALLIANCE : GUILD_ID_HORDE);
 
@@ -115,4 +115,3 @@ void AddStartGuildScripts()
 {
 	new StartGuild();
 }
-
