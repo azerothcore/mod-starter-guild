@@ -14,6 +14,14 @@ This module automatically assigns new characters to a specific guild depending o
 - Create a new character and open the guild tab
 
 
+## Credits
+
+* [stygiancore](  http://stygianthebest.github.io ): (Author of the module):
+* [SoulSeekkor]( https://github.com/SoulSeekkor ) cleaned up deprecation warnings and fixed naming
+
+* AzerothCore: [repository](https://github.com/azerothcore) - [website](http://azerothcore.org/) - [discord chat community](https://discord.gg/PaqQRkd)
+
+
 ## License
 
 - This code and content is released under the [GNU AGPL v3](https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3).

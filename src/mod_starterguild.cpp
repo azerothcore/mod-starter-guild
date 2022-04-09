@@ -3,7 +3,7 @@
 # Starter Guild #
 
 #### A module for AzerothCore (https://github.com/azerothcore/mod-starter-guild)
-### Originally by [StygianTheBest](https://github.com/StygianTheBest/AzerothCore-Content/tree/master/Modules)
+#### Originally by [StygianTheBest](https://github.com/StygianTheBest/AzerothCore-Content/tree/master/Modules)
 ------------------------------------------------------------------------------------------------------------------
 
 
