@@ -1,6 +1,6 @@
-void AddStartGuildScripts();
+void AddStarterGuildScripts();
 
 void Addmod_starter_guildScripts()
 {
-    AddStartGuildScripts();
+    AddStarterGuildScripts();
 }
