@@ -15,6 +15,18 @@ This module automatically assigns new characters to a specific guild depending o
 - Create a new guild ingame for each faction with `.guild create` or directly into the database.
 - Edit the configuration file.
 - Create a new character and open the guild tab.
+- Keep in mind that the limit of players is 1000 per guild.
+
+## SQL example to create the guild
+
+- Check that the ids do not exist, and in this case, the owner will be the first creating player, generally the administrator.
+
+```sql
+DELETE FROM `guild` WHERE `guildid` IN (1, 2);
+INSERT INTO `guild` (`guildid`, `name`, `leaderguid`, `motd`) VALUES
+(1, "Horde Starting Guild", 1, "Lok'Tar Ogar!"),
+(2, "Alliance Starting Guild", 1, "Fight together, for the alliance");
+```
 
 ## Credits
 
