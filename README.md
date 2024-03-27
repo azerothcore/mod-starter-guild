@@ -4,7 +4,7 @@
 
 - Latest build status with azerothcore:
 
-[![Build Status](https://github.com/azerothcore/mod-starter-guild/workflows/core-build/badge.svg?branch=master&event=push)](https://github.com/azerothcore/mod-starter-guild)
+[![Build Status](https://github.com/azerothcore/mod-starter-guild/workflows/core-build/badge.svg)](https://github.com/azerothcore/mod-starter-guild)
 
 ## Description
 
