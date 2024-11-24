@@ -18,7 +18,7 @@ void StarterGuild::OnLevelChanged(Player * player, uint8 previousLevel)
     {
         auto level = sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0);
 
-        if (level > 0 && (player->GetLevel() == level || (player->GetLevel() > level && previousLevel < level)))
+        if (level > 0 && !player->GetGuild() && (player->GetLevel() == level || (player->GetLevel() > level && previousLevel < level)))
         {
             addPlayerToGuild(player);
         }
