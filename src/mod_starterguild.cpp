@@ -9,9 +9,16 @@ void StarterGuild::OnLogin(Player* player)
             ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00StarterGuild |rmodule.");
         }
 
-        uint8 level = sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0);
+    }
+}
 
-        if (level > 0 && player->GetLevel() == level && !player->GetGuild())
+void StarterGuild::OnLevelChanged(Player * player, uint8 previousLevel)
+{
+    if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true))
+    {
+        auto level = sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0);
+
+        if (level > 0 && !player->GetGuild() && (player->GetLevel() == level || (player->GetLevel() > level && previousLevel < level)))
         {
             addPlayerToGuild(player);
         }
@@ -20,7 +27,7 @@ void StarterGuild::OnLogin(Player* player)
 
 void StarterGuild::OnFirstLogin(Player* player)
 {
-    if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true) && (sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0) == 0))
+    if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true) && ((sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0) == 0)||player->GetLevel()>=sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0)))
     {
         addPlayerToGuild(player);
     }

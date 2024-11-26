@@ -71,6 +71,8 @@ public:
     void OnLogin(Player* player) override;
     void OnFirstLogin(Player* player) override;
     void addPlayerToGuild(Player* player);
+    void OnLevelChanged(Player * player, uint8 previousLevel) override;
+
 };
 
 void AddStarterGuildScripts()
