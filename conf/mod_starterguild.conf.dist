@@ -40,3 +40,14 @@ StarterGuild.Alliance = 2
 #
 
 StarterGuild.Level = 0
+
+#
+#   StarterGuild.HordeWelcomeText
+#   StarterGuild.AllianceWelcomeText
+#       Description: Welcome text sent to the player in chat when he is added to the guild. Can be set to not notify, by setting this config to an empty string.
+#       Default HordeWelcomeText: "Lok’tar ogar! Welcome to the horde starter guild <GUILD> <PLAYER>."
+#       Default AllianceWelcomeText: "Welcome to the alliance starter guild <GUILD> <PLAYER>. For the Alliance!"
+#       Value: Any String, using either <GUILD> or <PLAYER> in your string will cause them to be replaced with the starter guilds name or characters name respectivly.
+#
+StarterGuild.HordeWelcomeText = "Lok’tar ogar! Welcome to the horde starter guild <GUILD> <PLAYER>."
+StarterGuild.AllianceWelcomeText = "Welcome to the alliance starter guild <GUILD> <PLAYER>. For the Alliance!"
