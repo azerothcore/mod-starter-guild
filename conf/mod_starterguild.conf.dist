@@ -3,10 +3,10 @@
 #
 #   StarterGuild.Enable
 #       Description: Description: Enable or disable the module
-#       Default: 0
+#       Default: 1
 #       Value:
-#           0 (true)
-#           1 (false)
+#           0 (false)
+#           1 (true)
 #
 
 StarterGuild.Enable = 1
@@ -16,8 +16,8 @@ StarterGuild.Enable = 1
 #       Description: Enable or disable the announcement that you are using the module
 #       Default: 0
 #       Value:
-#           0 (true)
-#           1 (false)
+#           0 (false)
+#           1 (true)
 #
 
 StarterGuild.Announce = 0
