@@ -68,10 +68,10 @@ class StarterGuild : public PlayerScript
 public:
     StarterGuild() : PlayerScript("StarterGuild") { }
 
-    void OnLogin(Player* player) override;
-    void OnFirstLogin(Player* player) override;
+    void OnPlayerLogin(Player* player) override;
+    void OnPlayerFirstLogin(Player* player) override;
     void addPlayerToGuild(Player* player);
-    void OnLevelChanged(Player * player, uint8 previousLevel) override;
+    void OnPlayerLevelChanged(Player * player, uint8 previousLevel) override;
 
 };
 

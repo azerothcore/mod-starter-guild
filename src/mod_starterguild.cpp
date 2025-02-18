@@ -1,7 +1,7 @@
 #include <regex>
 #include "mod_starterguild.h"
 
-void StarterGuild::OnLogin(Player* player)
+void StarterGuild::OnPlayerLogin(Player* player)
 {
     if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true))
     {
@@ -13,7 +13,7 @@ void StarterGuild::OnLogin(Player* player)
     }
 }
 
-void StarterGuild::OnLevelChanged(Player * player, uint8 previousLevel)
+void StarterGuild::OnPlayerLevelChanged(Player * player, uint8 previousLevel)
 {
     if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true))
     {
@@ -26,7 +26,7 @@ void StarterGuild::OnLevelChanged(Player * player, uint8 previousLevel)
     }
 }
 
-void StarterGuild::OnFirstLogin(Player* player)
+void StarterGuild::OnPlayerFirstLogin(Player* player)
 {
     if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true) && ((sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0) == 0)||player->GetLevel()>=sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0)))
     {
