@@ -1,16 +1,11 @@
-#include <regex>
 #include "mod_starterguild.h"
+#include <regex>
 
 void StarterGuild::OnPlayerLogin(Player* player)
 {
     if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true))
-    {
         if (sConfigMgr->GetOption<bool>("StarterGuild.Announce", true))
-        {
             ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00StarterGuild |rmodule.");
-        }
-
-    }
 }
 
 void StarterGuild::OnPlayerLevelChanged(Player * player, uint8 previousLevel)
@@ -20,18 +15,14 @@ void StarterGuild::OnPlayerLevelChanged(Player * player, uint8 previousLevel)
         auto level = sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0);
 
         if (level > 0 && !player->GetGuild() && (player->GetLevel() == level || (player->GetLevel() > level && previousLevel < level)))
-        {
             addPlayerToGuild(player);
-        }
     }
 }
 
 void StarterGuild::OnPlayerFirstLogin(Player* player)
 {
     if (sConfigMgr->GetOption<bool>("StarterGuild.Enable", true) && ((sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0) == 0)||player->GetLevel()>=sConfigMgr->GetOption<uint8>("StarterGuild.Level", 0)))
-    {
         addPlayerToGuild(player);
-    }
 }
 
 void StarterGuild::addPlayerToGuild(Player* player)
@@ -60,12 +51,8 @@ void StarterGuild::addPlayerToGuild(Player* player)
             ChatHandler(player->GetSession()).SendSysMessage(welcome_text.c_str());
         }
         else
-        {
             ChatHandler(player->GetSession()).SendSysMessage("The brotherhood has exceeded its membership limit.");
-        }
     }
     else
-    {
         ChatHandler(player->GetSession()).SendSysMessage("Brotherhood does not exist.");
-    }
 }

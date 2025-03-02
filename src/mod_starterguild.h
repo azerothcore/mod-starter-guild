@@ -54,11 +54,11 @@ This module automatically joins new players to a guild of your choice on first l
 */
 
 
-#include "ScriptMgr.h"
-#include "Player.h"
-#include "GuildMgr.h"
-#include "Configuration/Config.h"
 #include "Chat.h"
+#include "Configuration/Config.h"
+#include "GuildMgr.h"
+#include "Player.h"
+#include "ScriptMgr.h"
 
 #define Welcome_Name "Notice"
 uint32 guildMemberCount = 1000;
@@ -66,7 +66,11 @@ uint32 guildMemberCount = 1000;
 class StarterGuild : public PlayerScript
 {
 public:
-    StarterGuild() : PlayerScript("StarterGuild") { }
+    StarterGuild() : PlayerScript("StarterGuild", {
+        PLAYERHOOK_ON_LOGIN,
+        PLAYERHOOK_ON_FIRST_LOGIN,
+        PLAYERHOOK_ON_LEVEL_CHANGED
+    }) { }
 
     void OnPlayerLogin(Player* player) override;
     void OnPlayerFirstLogin(Player* player) override;
