@@ -1,5 +1,5 @@
 #include "mod_starterguild.h"
-#include <regex>
+#include <fmt/format.h>
 
 void StarterGuild::OnPlayerLogin(Player* player)
 {
@@ -30,8 +30,8 @@ void StarterGuild::addPlayerToGuild(Player* player)
     const uint32 GUILD_ID_HORDE = sConfigMgr->GetOption<uint32>("StarterGuild.Horde", 1);
     const uint32 GUILD_ID_ALLIANCE = sConfigMgr->GetOption<uint32>("StarterGuild.Alliance", 2);
 
-    const std::string GUILD_WELCOME_TEXT_HORDE = sConfigMgr->GetOption<std::string>("StarterGuild.HordeWelcomeText", "Lok’tar ogar! Welcome to the horde starter guild <GUILD> <PLAYER>.");
-    const std::string GUILD_WELCOME_TEXT_ALLIANCE = sConfigMgr->GetOption<std::string>("StarterGuild.AllianceWelcomeText", "Welcome to the alliance starter guild <GUILD> <PLAYER>. For the Alliance!");
+    const std::string GUILD_WELCOME_TEXT_HORDE = sConfigMgr->GetOption<std::string>("StarterGuild.HordeWelcomeText", "Lok’tar ogar! Welcome to the horde starter guild {GUILD} {PLAYER}.");
+    const std::string GUILD_WELCOME_TEXT_ALLIANCE = sConfigMgr->GetOption<std::string>("StarterGuild.AllianceWelcomeText", "Welcome to the alliance starter guild {GUILD} {PLAYER}. For the Alliance!");
 
     Guild* guild = sGuildMgr->GetGuildById(player->GetTeamId() == TEAM_ALLIANCE ? GUILD_ID_ALLIANCE : GUILD_ID_HORDE);
 
@@ -45,10 +45,13 @@ void StarterGuild::addPlayerToGuild(Player* player)
             // Inform the player they have joined the guild
             std::string welcome_text = player->GetTeamId() == TEAM_ALLIANCE ? GUILD_WELCOME_TEXT_ALLIANCE : GUILD_WELCOME_TEXT_HORDE;
 
-            welcome_text = std::regex_replace(welcome_text, std::regex("<GUILD>"), player->GetGuildName());
-            welcome_text = std::regex_replace(welcome_text, std::regex("<PLAYER>"), player->GetName());
+            welcome_text = fmt::format(
+                fmt::runtime(welcome_text),
+                fmt::arg("GUILD", player->GetGuildName()),
+                fmt::arg("PLAYER", player->GetPlayerName())
+            );
 
-            ChatHandler(player->GetSession()).SendSysMessage(welcome_text.c_str());
+            ChatHandler(player->GetSession()).SendSysMessage(welcome_text);
         }
         else
             ChatHandler(player->GetSession()).SendSysMessage("The brotherhood has exceeded its membership limit.");
