@@ -51,3 +51,7 @@ StarterGuild.Level = 0
 #
 StarterGuild.HordeWelcomeText = "Lok’tar ogar! Welcome to the horde starter guild {GUILD} {PLAYER}."
 StarterGuild.AllianceWelcomeText = "Welcome to the alliance starter guild {GUILD} {PLAYER}. For the Alliance!"
+
+# Custom race compatibility:
+# Race IDs 1-31 (and future custom races) are resolved from ChrRaces.dbc.
+# TeamID must be 1 for Horde or 7 for Alliance.

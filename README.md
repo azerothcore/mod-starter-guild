@@ -38,3 +38,16 @@ INSERT INTO `guild` (`guildid`, `name`, `leaderguid`, `motd`) VALUES
 ## License
 
 - This code and content is released under the [GNU AGPL v3](https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3).
+
+## Custom race / 31-race compatibility
+
+This fork refreshes the player's live team and faction from `ChrRaces.dbc` immediately before starter-guild assignment.
+
+This fixes first-login guild assignment for custom races whose live `m_team` value has not yet been synchronized when `PLAYERHOOK_ON_FIRST_LOGIN` runs (for example custom Ogre race ID 15).
+
+There is no hardcoded race switch. Race IDs 1-31 are supported automatically, and later race IDs work as well, provided their `ChrRaces.dbc` entry has a valid WotLK `TeamID`:
+
+- `1` = Horde
+- `7` = Alliance
+
+Client and server must use matching `ChrRaces.dbc` data.
