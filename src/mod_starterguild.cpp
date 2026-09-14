@@ -30,24 +30,14 @@ void StarterGuild::OnPlayerFirstLogin(Player* player)
 
 void StarterGuild::AddPlayerToGuild(Player* player)
 {
-    // Custom-race compatibility (Race IDs 1-31 and beyond):
-    // Refresh the player's live team/faction from ChrRaces.dbc before selecting
-    // a starter guild. Some custom races can reach PLAYERHOOK_ON_FIRST_LOGIN
-    // with an outdated m_team value even though ChrRaces.dbc already contains
-    // the correct TeamID. Guild::AddMember() compares the live team values, so
-    // normalizing here prevents valid custom Horde/Alliance races from being
-    // rejected on their first login.
-    player->SetFactionForRace(player->getRace());
-    TeamId const teamId = player->GetTeamId();
-
     auto const GUILD_ID_HORDE = sConfigMgr->GetOption<uint32>("StarterGuild.Horde", 1);
     auto const GUILD_ID_ALLIANCE = sConfigMgr->GetOption<uint32>("StarterGuild.Alliance", 2);
 
-    auto const GUILD_WELCOME_TEXT_HORDE = sConfigMgr->GetOption<std::string>("StarterGuild.HordeWelcomeText", "Lok’tar ogar! Welcome to the horde starter guild {GUILD} {PLAYER}.");
+    auto const GUILD_WELCOME_TEXT_HORDE = sConfigMgr->GetOption<std::string>("StarterGuild.HordeWelcomeText", "Lok'tar ogar! Welcome to the horde starter guild {GUILD} {PLAYER}.");
     auto const GUILD_WELCOME_TEXT_ALLIANCE =
         sConfigMgr->GetOption<std::string>("StarterGuild.AllianceWelcomeText", "Welcome to the alliance starter guild {GUILD} {PLAYER}. For the Alliance!");
 
-    Guild* guild = sGuildMgr->GetGuildById(teamId == TEAM_ALLIANCE ? GUILD_ID_ALLIANCE : GUILD_ID_HORDE);
+    Guild* guild = sGuildMgr->GetGuildById(player->GetTeamId() == TEAM_ALLIANCE ? GUILD_ID_ALLIANCE : GUILD_ID_HORDE);
 
     // If a guild is present, assign the character to the guild; otherwise skip assignment.
     if (!guild)
@@ -75,7 +65,7 @@ void StarterGuild::AddPlayerToGuild(Player* player)
     }
 
     // Inform the player they have joined the guild
-    std::string welcome_text = teamId == TEAM_ALLIANCE ? GUILD_WELCOME_TEXT_ALLIANCE : GUILD_WELCOME_TEXT_HORDE;
+    std::string welcome_text = player->GetTeamId() == TEAM_ALLIANCE ? GUILD_WELCOME_TEXT_ALLIANCE : GUILD_WELCOME_TEXT_HORDE;
     std::string guild_name = guild->GetName();
     std::string player_name = player->GetPlayerName();
 
